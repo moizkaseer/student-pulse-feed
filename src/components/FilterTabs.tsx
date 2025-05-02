@@ -1,5 +1,5 @@
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 interface FilterTabsProps {
   activeTab: string;
@@ -8,15 +8,38 @@ interface FilterTabsProps {
 
 const FilterTabs = ({ activeTab, setActiveTab }: FilterTabsProps) => {
   return (
-    <div className="mb-6">
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 bg-secondary text-secondary-foreground">
-          <TabsTrigger value="all" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">All</TabsTrigger>
-          <TabsTrigger value="events" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Events</TabsTrigger>
-          <TabsTrigger value="opportunities" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Opportunities</TabsTrigger>
-          <TabsTrigger value="announcements" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Announcements</TabsTrigger>
-        </TabsList>
-      </Tabs>
+    <div className="mb-6 px-1">
+      <ToggleGroup 
+        type="single" 
+        value={activeTab} 
+        onValueChange={(value) => value && setActiveTab(value)} 
+        className="justify-start bg-secondary rounded-lg p-1 w-full"
+      >
+        <ToggleGroupItem 
+          value="all" 
+          className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground rounded-md text-sm px-4"
+        >
+          All
+        </ToggleGroupItem>
+        <ToggleGroupItem 
+          value="events" 
+          className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground rounded-md text-sm px-4"
+        >
+          Events
+        </ToggleGroupItem>
+        <ToggleGroupItem 
+          value="opportunities" 
+          className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground rounded-md text-sm px-4"
+        >
+          Opportunities
+        </ToggleGroupItem>
+        <ToggleGroupItem 
+          value="announcements" 
+          className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground rounded-md text-sm px-4"
+        >
+          Announcements
+        </ToggleGroupItem>
+      </ToggleGroup>
     </div>
   );
 };

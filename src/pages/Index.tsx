@@ -75,21 +75,23 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background bg-pattern">
       <Header openSubmitModal={() => setIsSubmitModalOpen(true)} />
       
-      <main className="flex-grow container max-w-4xl mx-auto px-4 py-8">
+      <main className="flex-grow container max-w-3xl mx-auto px-4 py-8">
         <section className="mb-10">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold mb-2 gradient-text">CampusConnect</h1>
-            <p className="text-lg text-gray-600">Discover, share, and vote on campus events and opportunities</p>
+          <div className="mb-8 text-center">
+            <h1 className="text-5xl font-bold mb-3 gradient-text">CampusConnect</h1>
+            <p className="text-lg text-muted-foreground">Discover, share, and vote on campus events and opportunities</p>
           </div>
           
           <div className="relative mb-8">
-            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+            <div className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground">
+              <Search className="h-5 w-5" />
+            </div>
             <Input
               placeholder="Search for events, opportunities, or tags..."
-              className="pl-10"
+              className="pl-10 border-accent bg-white dark:bg-card shadow-soft"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -97,7 +99,7 @@ const Index = () => {
           
           <FilterTabs activeTab={activeTab} setActiveTab={setActiveTab} />
           
-          <div className="space-y-4">
+          <div className="space-y-6">
             {filteredData.length > 0 ? (
               filteredData.map((item) => (
                 <EventCard
@@ -112,19 +114,19 @@ const Index = () => {
                 />
               ))
             ) : (
-              <div className="text-center py-12">
-                <p className="text-lg text-gray-500">No items found</p>
-                <p className="text-gray-400">Try adjusting your filters or search</p>
+              <div className="text-center py-12 bg-white dark:bg-card rounded-xl shadow-soft p-8">
+                <p className="text-lg text-muted-foreground">No items found</p>
+                <p className="text-muted-foreground/70">Try adjusting your filters or search</p>
               </div>
             )}
           </div>
         </section>
       </main>
       
-      <footer className="bg-white border-t border-gray-200 py-6">
-        <div className="container mx-auto px-4 text-center text-sm text-gray-500">
-          <p>© 2023 CampusConnect. Built with 💜 for students.</p>
-          <p className="mt-1">Subscribe to our weekly digest for campus updates.</p>
+      <footer className="bg-white dark:bg-card border-t border-border py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">© 2023 CampusConnect. Built with ❤️ for students.</p>
+          <p className="mt-2 text-muted-foreground/70">Subscribe to our weekly digest for campus updates.</p>
         </div>
       </footer>
       

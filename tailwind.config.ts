@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -54,11 +57,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				campus: {
-					purple: '#000000',
-					lightPurple: '#333333',
-					blue: '#000000', 
-					lightBlue: '#333333',
-					background: '#FFFFFF',
+					purple: '#F97316',
+					lightPurple: '#FDBA74',
+					blue: '#F97316', 
+					lightBlue: '#FDBA74',
+					background: '#FFFBF5',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -117,6 +120,10 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'float': 'float 3s ease-in-out infinite'
+			},
+			boxShadow: {
+				'soft': '0 2px 10px rgba(0, 0, 0, 0.05)',
+				'medium': '0 4px 20px rgba(0, 0, 0, 0.08)'
 			}
 		}
 	},
