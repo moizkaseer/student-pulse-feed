@@ -74,87 +74,92 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
     <HoverCard>
       <HoverCardTrigger asChild>
         <Card 
-          className={`overflow-hidden card-hover animate-fade-in ${isExpanded ? 'card-expanded' : ''}`}
+          className={`h-full overflow-hidden card-hover animate-fade-in ${isExpanded ? 'card-expanded' : ''}`}
           onClick={toggleExpand}
         >
           <CardContent className="p-0">
-            <div className="flex">
-              <div 
-                className={`flex flex-col items-center justify-center p-4 ${hasVoted ? 'bg-campus-purple bg-opacity-10' : 'bg-gray-50'}`}
-              >
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="p-0 h-8 w-8"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleVote();
-                  }}
-                >
-                  <ArrowUp 
-                    size={24} 
-                    className={`transition-colors ${hasVoted ? 'text-campus-purple' : 'text-gray-400'}`} 
-                  />
-                </Button>
-                <span className={`text-sm font-medium ${hasVoted ? 'text-campus-purple' : 'text-gray-600'}`}>
-                  {voteCount}
-                </span>
-              </div>
-              <div className="p-5 w-full">
-                <div className="flex items-center justify-between mb-2">
+            <div className="flex flex-col h-full">
+              <div className="p-4 flex-grow">
+                <div className="flex justify-between items-start mb-2">
                   <Badge className={getCategoryColor(category)}>
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </Badge>
-                  {date && (
-                    <div className="flex items-center text-xs text-gray-500">
-                      <Calendar size={12} className="mr-1" />
-                      {date}
-                    </div>
-                  )}
+                  <div 
+                    className={`flex items-center p-1 rounded-md ${hasVoted ? 'bg-campus-purple bg-opacity-10' : 'bg-gray-50'}`}
+                  >
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="p-0 h-6 w-6"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleVote();
+                      }}
+                    >
+                      <ArrowUp 
+                        size={18} 
+                        className={`transition-colors ${hasVoted ? 'text-campus-purple' : 'text-gray-400'}`} 
+                      />
+                    </Button>
+                    <span className={`text-xs font-medium ${hasVoted ? 'text-campus-purple' : 'text-gray-600'}`}>
+                      {voteCount}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="mb-1 text-lg font-bold">{title}</h3>
-                <p className="mb-3 text-sm text-gray-600">{description}</p>
-                <div className="flex flex-wrap gap-1">
-                  {tags.map((tag, i) => (
+                
+                <h3 className="mb-1 text-md font-bold line-clamp-2">{title}</h3>
+                {date && (
+                  <div className="flex items-center text-xs text-gray-500 mb-1">
+                    <Calendar size={12} className="mr-1" />
+                    {date}
+                  </div>
+                )}
+                <p className="mb-2 text-xs text-gray-600 line-clamp-2">{description}</p>
+                
+                <div className="flex flex-wrap gap-1 mt-auto">
+                  {tags.slice(0, 3).map((tag, i) => (
                     <Badge key={i} variant="outline" className="text-xs">
                       {tag}
                     </Badge>
                   ))}
+                  {tags.length > 3 && (
+                    <span className="text-xs text-muted-foreground">+{tags.length - 3}</span>
+                  )}
                 </div>
               </div>
-            </div>
             
-            <div className="card-detail-container bg-gray-50">
-              <div className="p-5 border-t border-gray-100">
-                <h4 className="text-md font-semibold mb-3">Event Details</h4>
-                <div className="space-y-3">
-                  {date && (
-                    <div className="flex items-center text-sm">
-                      <Calendar size={16} className="mr-2 text-primary" />
-                      <span>{date}</span>
-                      <Clock size={16} className="ml-4 mr-2 text-primary" />
-                      <span>{mockTime}</span>
+              <div className="card-detail-container bg-gray-50">
+                <div className="p-4 border-t border-gray-100">
+                  <h4 className="text-sm font-semibold mb-3">Event Details</h4>
+                  <div className="space-y-3">
+                    {date && (
+                      <div className="flex items-center text-xs">
+                        <Calendar size={14} className="mr-2 text-primary" />
+                        <span>{date}</span>
+                        <Clock size={14} className="ml-3 mr-2 text-primary" />
+                        <span>{mockTime}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center text-xs">
+                      <MapPin size={14} className="mr-2 text-primary" />
+                      <span>{mockLocation}</span>
                     </div>
-                  )}
-                  <div className="flex items-center text-sm">
-                    <MapPin size={16} className="mr-2 text-primary" />
-                    <span>{mockLocation}</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-3">{mockDetailsText}</p>
-                  <div className="flex items-center justify-between mt-4">
-                    <Button variant="outline" size="sm" onClick={(e) => {
-                      e.stopPropagation();
-                      toast.success("RSVP confirmed!");
-                    }}>
-                      RSVP
-                    </Button>
-                    <Button variant="ghost" size="sm" className="text-primary" onClick={(e) => {
-                      e.stopPropagation();
-                      toast.info("Event link copied to clipboard!");
-                    }}>
-                      <Share size={16} className="mr-1" />
-                      Share
-                    </Button>
+                    <p className="text-xs text-gray-600 mt-2">{mockDetailsText}</p>
+                    <div className="flex items-center justify-between mt-3">
+                      <Button variant="outline" size="sm" onClick={(e) => {
+                        e.stopPropagation();
+                        toast.success("RSVP confirmed!");
+                      }}>
+                        RSVP
+                      </Button>
+                      <Button variant="ghost" size="sm" className="text-primary" onClick={(e) => {
+                        e.stopPropagation();
+                        toast.info("Event link copied to clipboard!");
+                      }}>
+                        <Share size={14} className="mr-1" />
+                        Share
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -176,12 +181,12 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
             >
               {isExpanded ? (
                 <>
-                  <span className="mr-1">Less details</span>
+                  <span className="mr-1">Less</span>
                   <ChevronUp size={14} />
                 </>
               ) : (
                 <>
-                  <span className="mr-1">More details</span>
+                  <span className="mr-1">More</span>
                   <ChevronDown size={14} />
                 </>
               )}

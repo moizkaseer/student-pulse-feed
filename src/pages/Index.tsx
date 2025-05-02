@@ -78,7 +78,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-background bg-pattern">
       <Header openSubmitModal={() => setIsSubmitModalOpen(true)} />
       
-      <main className="flex-grow container max-w-3xl mx-auto px-4 py-8">
+      <main className="flex-grow container max-w-5xl mx-auto px-4 py-8">
         <section className="mb-10">
           <div className="mb-8 text-center">
             <h1 className="text-5xl font-bold mb-3 gradient-text">CampusConnect</h1>
@@ -99,9 +99,9 @@ const Index = () => {
           
           <FilterTabs activeTab={activeTab} setActiveTab={setActiveTab} />
           
-          <div className="space-y-6">
-            {filteredData.length > 0 ? (
-              filteredData.map((item) => (
+          {filteredData.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredData.map((item) => (
                 <EventCard
                   key={item.id}
                   id={item.id}
@@ -112,14 +112,14 @@ const Index = () => {
                   votes={item.votes}
                   tags={item.tags}
                 />
-              ))
-            ) : (
-              <div className="text-center py-12 bg-white dark:bg-card rounded-xl shadow-soft p-8">
-                <p className="text-lg text-muted-foreground">No items found</p>
-                <p className="text-muted-foreground/70">Try adjusting your filters or search</p>
-              </div>
-            )}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 bg-white dark:bg-card rounded-xl shadow-soft p-8">
+              <p className="text-lg text-muted-foreground">No items found</p>
+              <p className="text-muted-foreground/70">Try adjusting your filters or search</p>
+            </div>
+          )}
         </section>
       </main>
       
