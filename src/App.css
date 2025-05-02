@@ -41,3 +41,39 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Card hover and animation effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.2);
+}
+
+.card-detail-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.card-expanded .card-detail-container {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
