@@ -54,11 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				campus: {
-					purple: '#8B5CF6',
-					lightPurple: '#A78BFA',
-					blue: '#3B82F6', 
-					lightBlue: '#93C5FD',
-					background: '#F9FAFB',
+					purple: '#000000',
+					lightPurple: '#333333',
+					blue: '#000000', 
+					lightBlue: '#333333',
+					background: '#FFFFFF',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
