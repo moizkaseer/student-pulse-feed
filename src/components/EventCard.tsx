@@ -146,19 +146,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
                     </div>
                     <p className="text-xs text-gray-600 mt-2">{mockDetailsText}</p>
                     <div className="flex items-center justify-between mt-3">
-                      <Button variant="outline" size="sm" onClick={(e) => {
-                        e.stopPropagation();
-                        toast.success("RSVP confirmed!");
-                      }}>
-                        RSVP
-                      </Button>
-                      <Button variant="ghost" size="sm" className="text-primary" onClick={(e) => {
-                        e.stopPropagation();
-                        toast.info("Event link copied to clipboard!");
-                      }}>
-                        <Share size={14} className="mr-1" />
-                        Share
-                      </Button>
+
                     </div>
                   </div>
                 </div>
@@ -170,27 +158,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
               <Users size={14} className="mr-1" />
               {voteCount} interested
             </div>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              className="text-xs text-primary p-0 flex items-center"
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleExpand();
-              }}
-            >
-              {isExpanded ? (
-                <>
-                  <span className="mr-1">Less</span>
-                  <ChevronUp size={14} />
-                </>
-              ) : (
-                <>
-                  <span className="mr-1">More</span>
-                  <ChevronDown size={14} />
-                </>
-              )}
-            </Button>
+
           </CardFooter>
         </Card>
       </HoverCardTrigger>
