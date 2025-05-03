@@ -60,9 +60,11 @@ import axios from "axios";
 type UserSubmit = {
     id: number;
     title: string;
+    location: string;
     category: string;
     date: string;
     description: string;
+    time: string;
     tags: string[];
     votes: number;
 };
@@ -101,8 +103,6 @@ const Index = () => {
 
         return matchesTab && (searchQuery === "" || matchesSearch);
     });
-    console.log("sfdsfjjdsflsjgklsjgkljgkljdklf")
-    console.log("JEREEEE")
 
     return (
     <div className="min-h-screen flex flex-col bg-background bg-pattern">
@@ -136,10 +136,12 @@ const Index = () => {
                   key={item.id}
                   id={item.id}
                   title={item.title}
+                  location={item.location}
                   description={item.description}
                   date={item.date}
                   category={item.category as 'event' | 'opportunity' | 'announcement'}
                   votes={item.votes}
+                  time={item.time}
                   tags={item.tags}
                 />
               ))}

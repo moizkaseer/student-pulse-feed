@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { 
+import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
@@ -14,18 +14,20 @@ import {
 interface EventCardProps {
   id: number;
   title: string;
+  location: string;
   description: string;
   date?: string;
   category: 'event' | 'opportunity' | 'announcement';
   votes: number;
+  time: string;
   tags: string[];
 }
 
-const EventCard = ({ id, title, description, date, category, votes, tags }: EventCardProps) => {
-  const [voteCount, setVoteCount] = useState(votes);
+const EventCard = ({ id, title, location, description, date, category, votes, tags, time }: EventCardProps) => {
+  const [voteCount, setVoteCount] = useState(votes || 0);
   const [hasVoted, setHasVoted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  
+
   const handleVote = () => {
     if (hasVoted) {
       setVoteCount(voteCount - 1);
@@ -59,22 +61,18 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
     const locations = ['Student Center', 'Main Hall', 'Library', 'Engineering Building', 'Science Complex'];
     return locations[Math.floor(Math.random() * locations.length)];
   };
-  
+
   const getRandomTime = () => {
     const hours = ['09', '10', '11', '13', '14', '15', '16', '17', '18'];
     const minutes = ['00', '15', '30', '45'];
     return `${hours[Math.floor(Math.random() * hours.length)]}:${minutes[Math.floor(Math.random() * minutes.length)]}`;
   };
 
-  const mockLocation = getRandomLocation();
-  const mockTime = getRandomTime();
-  const mockDetailsText = "Join us for this exciting event that brings together students from all disciplines. Network with peers, learn new skills, and have fun! Space is limited, so make sure to RSVP soon.";
-
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Card 
-          className={`h-full overflow-hidden card-hover animate-fade-in ${isExpanded ? 'card-expanded' : ''}`}
+        <Card
+          className={`h-full overflow-hidden card-hover animate-fade-in ${isExpanded ? 'card-expanded' : ''} cursor-pointer`}
           onClick={toggleExpand}
         >
           <CardContent className="p-0">
@@ -84,21 +82,21 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
                   <Badge className={getCategoryColor(category)}>
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </Badge>
-                  <div 
+                  <div
                     className={`flex items-center p-1 rounded-md ${hasVoted ? 'bg-campus-purple bg-opacity-10' : 'bg-gray-50'}`}
                   >
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       className="p-0 h-6 w-6"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleVote();
                       }}
                     >
-                      <ArrowUp 
-                        size={18} 
-                        className={`transition-colors ${hasVoted ? 'text-campus-purple' : 'text-gray-400'}`} 
+                      <ArrowUp
+                        size={18}
+                        className={`transition-colors ${hasVoted ? 'text-campus-purple' : 'text-gray-400'}`}
                       />
                     </Button>
                     <span className={`text-xs font-medium ${hasVoted ? 'text-campus-purple' : 'text-gray-600'}`}>
@@ -106,7 +104,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
                     </span>
                   </div>
                 </div>
-                
+
                 <h3 className="mb-1 text-md font-bold line-clamp-2">{title}</h3>
                 {date && (
                   <div className="flex items-center text-xs text-gray-500 mb-1">
@@ -115,7 +113,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
                   </div>
                 )}
                 <p className="mb-2 text-xs text-gray-600 line-clamp-2">{description}</p>
-                
+
                 <div className="flex flex-wrap gap-1 mt-auto">
                   {tags.slice(0, 3).map((tag, i) => (
                     <Badge key={i} variant="outline" className="text-xs">
@@ -127,7 +125,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
                   )}
                 </div>
               </div>
-            
+
               <div className="card-detail-container bg-gray-50">
                 <div className="p-4 border-t border-gray-100">
                   <h4 className="text-sm font-semibold mb-3">Event Details</h4>
@@ -137,14 +135,14 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
                         <Calendar size={14} className="mr-2 text-primary" />
                         <span>{date}</span>
                         <Clock size={14} className="ml-3 mr-2 text-primary" />
-                        <span>{mockTime}</span>
+                        <span>{time}</span>
                       </div>
                     )}
                     <div className="flex items-center text-xs">
                       <MapPin size={14} className="mr-2 text-primary" />
-                      <span>{mockLocation}</span>
+                      <span>{location}</span>
                     </div>
-                    <p className="text-xs text-gray-600 mt-2">{mockDetailsText}</p>
+                    <p className="text-xs text-gray-600 mt-2">{description.substring(0,200)}...</p>
                     <div className="flex items-center justify-between mt-3">
 
                     </div>
@@ -169,7 +167,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
             <Calendar size={12} className="mr-1" />
             {date || "Date TBA"}
           </div>
-          <p className="text-sm">{mockDetailsText.substring(0, 100)}...</p>
+          <p className="text-sm">{description.substring(0, 50)}...</p>
           <div className="text-xs text-primary font-medium">
             Hover to preview, click for more details
           </div>
