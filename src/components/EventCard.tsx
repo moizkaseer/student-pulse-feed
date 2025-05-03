@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Calendar, ArrowUp, Users, ChevronDown, ChevronUp, MapPin, Clock, Share } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -74,7 +73,7 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
     <HoverCard>
       <HoverCardTrigger asChild>
         <Card 
-          className={`h-full overflow-hidden card-hover animate-fade-in ${isExpanded ? 'card-expanded' : ''}`}
+          className={`h-full overflow-hidden card-hover animate-fade-in ${isExpanded ? 'card-expanded' : ''} cursor-pointer`}
           onClick={toggleExpand}
         >
           <CardContent className="p-0">

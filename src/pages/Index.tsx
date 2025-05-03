@@ -4,7 +4,8 @@ import EventCard from '@/components/EventCard';
 import FilterTabs from '@/components/FilterTabs';
 import SubmitModal from '@/components/SubmitModal';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, Mail } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 // Mock data for initial display
 // const mockData = [
@@ -72,6 +73,9 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [submissions, setSubmissions] = useState<UserSubmit[]>([]); // ← this replaces mockData
+  const [isSubscribeOpen, setIsSubscribeOpen] = useState(false);
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
     axios
@@ -155,7 +159,7 @@ const Index = () => {
       
       <footer className="bg-white dark:bg-card border-t border-border py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">© 2023 CampusConnect. Built with ❤️ for students.</p>
+          <p className="text-muted-foreground">© 2023 CampusConnect. All rights reserved.</p>
           <p className="mt-2 text-muted-foreground/70">Subscribe to our weekly digest for campus updates.</p>
         </div>
       </footer>
@@ -164,6 +168,67 @@ const Index = () => {
         isOpen={isSubmitModalOpen}
         onClose={() => setIsSubmitModalOpen(false)}
       />
+
+      {/* Floating Subscribe Button */}
+      <Button
+        onClick={() => setIsSubscribeOpen(true)}
+        className="fixed bottom-6 right-6 z-50 bg-campus-purple hover:bg-campus-lightPurple shadow-lg flex items-center"
+        style={{ borderRadius: '9999px', padding: '0.75rem 1.5rem' }}
+      >
+        <Mail size={20} className="mr-2" />
+        Subscribe
+      </Button>
+
+      {/* Subscribe Modal */}
+      {isSubscribeOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+          <div className="bg-white dark:bg-card rounded-lg shadow-xl p-6 w-full max-w-xs relative transition-all duration-200">
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-xl"
+              onClick={() => setIsSubscribeOpen(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            {!subscribed ? (
+              <>
+                <h2 className="text-lg font-semibold mb-2 text-center text-campus-purple">Subscribe to Weekly Digest</h2>
+                <p className="text-sm text-muted-foreground mb-4 text-center">
+                  Get the best campus updates in your inbox.
+                </p>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-campus-purple/40 transition"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
+                <Button
+                  className="w-full bg-campus-purple hover:bg-campus-lightPurple text-base py-2 rounded-lg"
+                  style={{ fontWeight: 500 }}
+                  onClick={() => setSubscribed(true)}
+                >
+                  Subscribe
+                </Button>
+              </>
+            ) : (
+              <div className="text-center">
+                <h3 className="text-base font-medium mb-2 text-campus-purple">Thank you for subscribing!</h3>
+                <Button
+                  className="mt-3 w-full"
+                  onClick={() => {
+                    setIsSubscribeOpen(false);
+                    setSubscribed(false);
+                    setEmail('');
+                  }}
+                >
+                  Close
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
