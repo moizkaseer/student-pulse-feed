@@ -101,7 +101,7 @@ const Index = () => {
 
         return matchesTab && (searchQuery === "" || matchesSearch);
     });
-
+    console.log("sfdsfjjdsflsjgklsjgkljgkljdklf")
     console.log("JEREEEE")
 
     return (
