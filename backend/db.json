@@ -1,0 +1,22 @@
+{
+  "userSubmits": [
+    {
+      "id": 1,
+      "title": "Learn React",
+      "category": "Education",
+      "date": "2025-05-03",
+      "description": "A submission about React learning resources.",
+      "tags": "react,typescript,frontend",
+      "votes": 0
+    },
+    {
+      "id": 2,
+      "title": "Pigeon Care Tips",
+      "category": "Animal",
+      "date": "2025-05-01",
+      "description": "Tips for taking care of pigeons in urban environments.",
+      "tags": "pigeons,care,animals",
+      "votes": 0
+    }
+  ]
+}
