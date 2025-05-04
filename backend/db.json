@@ -94,58 +94,6 @@
         "entrepreneurship"
       ],
       "votes": 52
-    },
-    {
-      "id": "a57f",
-      "title": "Grand Theft Auto News",
-      "location": "Struga",
-      "category": "opportunity",
-      "date": "2024-03-03",
-      "time": "11:11",
-      "description": "Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the seventh main entry in the Grand Theft Auto series, following 2008's Grand Theft Auto IV, and the fifteenth instalment overall",
-      "tags": [
-        "Gaming",
-        "News"
-      ]
-    },
-    {
-      "id": "015f",
-      "title": "DSADSAS",
-      "location": "TEST",
-      "category": "opportunity",
-      "date": "2025-04-03",
-      "time": "11:13",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "tags": [
-        "Gaming",
-        "News"
-      ]
-    },
-    {
-      "id": "0b70",
-      "title": "TEST",
-      "location": "Kumanove",
-      "category": "opportunity",
-      "date": "2024-04-03",
-      "time": "10:19",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "tags": [
-        "Career",
-        "Workshop"
-      ]
-    },
-    {
-      "id": "ad42",
-      "title": "TEST SDSADA",
-      "location": "DSADS",
-      "category": "announcement",
-      "date": "2024-06-05",
-      "time": "23:43",
-      "description": "DSADSKFIIODUSFIODSFIOUIOD",
-      "tags": [
-        "Gaming",
-        "News"
-      ]
     }
   ],
   "users": [
