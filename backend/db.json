@@ -1,102 +1,173 @@
 {
   "userSubmits": [
     {
-      "id": 1,
-      "title": "Learn React",
+      "id": "1",
+      "title": "React & TypeScript Crash Course",
       "location": "Tetovo",
       "category": "Education",
       "date": "2025-05-03",
       "time": "14:00",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor sagittis nisi, eu laoreet quam finibus vitae. Vestibulum eu mauris nec sem egestas lobortis vitae at mauris. Nullam facilisis augue in feugiat ornare. Nam posuere nulla enim, et pellentesque enim iaculis a. Sed imperdiet ante in fermentum iaculis. Phasellus ut lectus dapibus, vehicula ante in, imperdiet est. Maecenas nec aliquet libero, quis ornare nunc. Sed sit amet tellus nec tellus viverra tincidunt sit amet sit amet diam. ",
+      "description": "Join us for a hands-on workshop on building modern web applications using React and TypeScript. Perfect for developers looking to strengthen their frontend skills. Bring your laptop!",
       "tags": "react,typescript,frontend",
-      "votes": 0
+      "votes": 23
     },
     {
-      "id": 2,
-      "title": "Pigeon Care Tips",
+      "id": "2",
+      "title": "Pigeon Care Basics: A Beginner's Guide",
       "location": "Skopje",
-      "category": "opportunity",
+      "category": "Opportunity",
       "date": "2025-05-01",
       "time": "10:30",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor sagittis nisi, eu laoreet quam finibus vitae. Vestibulum eu mauris nec sem egestas lobortis vitae at mauris. Nullam facilisis augue in feugiat ornare. Nam posuere nulla enim, et pellentesque enim iaculis a. Sed imperdiet ante in fermentum iaculis. Phasellus ut lectus dapibus, vehicula ante in, imperdiet est. Maecenas nec aliquet libero, quis ornare nunc. Sed sit amet tellus nec tellus viverra tincidunt sit amet sit amet diam. ",
+      "description": "Learn how to take care of domestic pigeons in this free session hosted by the Skopje Bird Enthusiasts Club. Topics include feeding, health, and safe housing.",
       "tags": "pigeons,care,animals",
-      "votes": 0
+      "votes": 15
     },
     {
       "id": "0af8",
-      "title": "Test",
-      "location": "Kumanove",
-      "category": "announcement",
+      "title": "Qershia Internship Applications Open!",
+      "location": "Kumanovo",
+      "category": "Announcement",
       "date": "2025-05-22",
       "time": "03:00",
-      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "description": "Qershia is looking for young, passionate developers for our summer internship program. Learn about software development in a real-world environment. Apply online!",
       "tags": [
-        "Career",
-        "Gango Gang"
+        "internship",
+        "Qershia",
+        "software"
       ],
-      "votes": 0
+      "votes": 41
     },
     {
       "id": "0be2",
-      "title": "TEST 2",
-      "location": "Kumanove",
-      "category": "event",
+      "title": "Career Skills Workshop: Build Your CV & LinkedIn",
+      "location": "Kumanovo",
+      "category": "Event",
       "date": "2025-05-20",
       "time": "18:00",
-      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "description": "A practical session on how to create an effective CV and build a professional LinkedIn profile. Hosted by HR experts and recruiters from top companies in Macedonia.",
       "tags": [
-        "Career",
-        "Workshop"
+        "career",
+        "workshop"
       ],
-      "votes": 0
+      "votes": 37
     },
     {
       "id": "88c9",
-      "title": "TEST 3",
-      "location": "Kumanove",
-      "category": "opportunity",
+      "title": "Remote Work Opportunities for Developers",
+      "location": "Kumanovo",
+      "category": "Opportunity",
       "date": "2025-06-26",
       "time": "22:30",
-      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "description": "Discover freelance and remote work platforms where developers can earn globally. We'll cover Upwork, Toptal, and tips to build your profile and win gigs.",
       "tags": [
-        "Career",
-        "Work"
-      ]
+        "career",
+        "remote"
+      ],
+      "votes": 18
     },
     {
       "id": "4847",
-      "title": "TEST 4",
+      "title": "Tech Conference: Digital Macedonia 2025",
       "location": "Skopje",
-      "category": "announcement",
+      "category": "Announcement",
       "date": "2025-05-26",
       "time": "18:59",
-      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "description": "Join tech leaders and startups at Macedonia's largest tech event. Talks on AI, Web3, and sustainable tech. Networking, job fair, and live demos included.",
+      "tags": [
+        "tech",
+        "conference",
+        "innovation"
+      ],
+      "votes": 64
+    },
+    {
+      "id": "17b8",
+      "title": "Startup Pitch Night: Skopje Edition",
+      "location": "Skopje",
+      "category": "Opportunity",
+      "date": "2025-05-13",
+      "time": "05:00",
+      "description": "Early-stage founders present their ideas to a panel of investors and get feedback. Audience members can vote and network. Coffee & croissants provided!",
+      "tags": [
+        "startups",
+        "pitch",
+        "entrepreneurship"
+      ],
+      "votes": 52
+    },
+    {
+      "id": "a57f",
+      "title": "Grand Theft Auto News",
+      "location": "Struga",
+      "category": "opportunity",
+      "date": "2024-03-03",
+      "time": "11:11",
+      "description": "Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the seventh main entry in the Grand Theft Auto series, following 2008's Grand Theft Auto IV, and the fifteenth instalment overall",
+      "tags": [
+        "Gaming",
+        "News"
+      ]
+    },
+    {
+      "id": "015f",
+      "title": "DSADSAS",
+      "location": "TEST",
+      "category": "opportunity",
+      "date": "2025-04-03",
+      "time": "11:13",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "tags": [
+        "Gaming",
+        "News"
+      ]
+    },
+    {
+      "id": "0b70",
+      "title": "TEST",
+      "location": "Kumanove",
+      "category": "opportunity",
+      "date": "2024-04-03",
+      "time": "10:19",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "tags": [
         "Career",
         "Workshop"
       ]
     },
     {
-      "id": "17b8",
-      "title": "TEST 5",
-      "location": "SKOPJE",
-      "category": "opportunity",
-      "date": "2025-05-13",
-      "time": "05:00",
-      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "id": "ad42",
+      "title": "TEST SDSADA",
+      "location": "DSADS",
+      "category": "announcement",
+      "date": "2024-06-05",
+      "time": "23:43",
+      "description": "DSADSKFIIODUSFIODSFIOUIOD",
       "tags": [
-        ""
+        "Gaming",
+        "News"
       ]
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "otairi010@gmail.com"
     },
     {
-      "id":2,
+      "id": "2",
       "email": "moizkaseer@gmail.com"
+    },
+    {
+      "id": "fcbc",
+      "email": "otairi010@gmail.com"
+    },
+    {
+      "id": "cfaa",
+      "email": "tairiomer04@gmail.com"
+    },
+    {
+      "id": "2025-05-04T10:38:04.698Z",
+      "email": "mail@mail.com"
     }
   ]
 }
