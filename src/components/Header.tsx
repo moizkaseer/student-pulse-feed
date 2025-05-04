@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Bell, Plus } from 'lucide-react';
@@ -25,10 +24,30 @@ const Header = ({ openSubmitModal }: { openSubmitModal: () => void }) => {
         
         <div className="hidden md:flex items-center space-x-4">
           <nav className="flex items-center space-x-2 text-sm font-medium">
-            <Link to="/" className="px-3 py-2 transition-colors rounded-md hover:bg-gray-100">Home</Link>
-            <Link to="/" className="px-3 py-2 transition-colors rounded-md hover:bg-gray-100">Events</Link>
-            <Link to="/" className="px-3 py-2 transition-colors rounded-md hover:bg-gray-100">Opportunities</Link>
-            <Link to="/" className="px-3 py-2 transition-colors rounded-md hover:bg-gray-100">Announcements</Link>
+            <Link 
+              to="/" 
+              className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-campus-purple/10 hover:text-campus-purple"
+            >
+              Home
+            </Link>
+            <Link 
+              to="/" 
+              className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-campus-purple/10 hover:text-campus-purple"
+            >
+              Events
+            </Link>
+            <Link 
+              to="/" 
+              className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-campus-purple/10 hover:text-campus-purple"
+            >
+              Opportunities
+            </Link>
+            <Link 
+              to="/" 
+              className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-campus-purple/10 hover:text-campus-purple"
+            >
+              Announcements
+            </Link>
           </nav>
         </div>
 
