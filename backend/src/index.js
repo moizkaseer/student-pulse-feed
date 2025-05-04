@@ -3,6 +3,7 @@ import {fileURLToPath} from "url";
 import {dirname} from "path";
 import fs from "fs"; // You need to import 'fs'
 import path from "path"; // You need to import 'path'
+import cors from "cors";
 import nodemailer from "nodemailer";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,6 +11,8 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 const transporter = nodemailer.createTransport({
   service: "gmail", // For Gmail, use Gmail's SMTP server
@@ -50,7 +53,7 @@ app.get("/users", (req, res) => {
   }
 });
 
-app.get("/sendEmails", async (req, res) => {
+app.post("/sendEmails", async (req, res) => {
   try {
     console.log("HERE");
     const users = getUsers();
