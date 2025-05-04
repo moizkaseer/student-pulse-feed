@@ -3,20 +3,100 @@
     {
       "id": 1,
       "title": "Learn React",
+      "location": "Tetovo",
       "category": "Education",
       "date": "2025-05-03",
-      "description": "A submission about React learning resources.",
+      "time": "14:00",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor sagittis nisi, eu laoreet quam finibus vitae. Vestibulum eu mauris nec sem egestas lobortis vitae at mauris. Nullam facilisis augue in feugiat ornare. Nam posuere nulla enim, et pellentesque enim iaculis a. Sed imperdiet ante in fermentum iaculis. Phasellus ut lectus dapibus, vehicula ante in, imperdiet est. Maecenas nec aliquet libero, quis ornare nunc. Sed sit amet tellus nec tellus viverra tincidunt sit amet sit amet diam. ",
       "tags": "react,typescript,frontend",
       "votes": 0
     },
     {
       "id": 2,
       "title": "Pigeon Care Tips",
-      "category": "Animal",
+      "location": "Skopje",
+      "category": "opportunity",
       "date": "2025-05-01",
-      "description": "Tips for taking care of pigeons in urban environments.",
+      "time": "10:30",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor sagittis nisi, eu laoreet quam finibus vitae. Vestibulum eu mauris nec sem egestas lobortis vitae at mauris. Nullam facilisis augue in feugiat ornare. Nam posuere nulla enim, et pellentesque enim iaculis a. Sed imperdiet ante in fermentum iaculis. Phasellus ut lectus dapibus, vehicula ante in, imperdiet est. Maecenas nec aliquet libero, quis ornare nunc. Sed sit amet tellus nec tellus viverra tincidunt sit amet sit amet diam. ",
       "tags": "pigeons,care,animals",
       "votes": 0
+    },
+    {
+      "id": "0af8",
+      "title": "Test",
+      "location": "Kumanove",
+      "category": "announcement",
+      "date": "2025-05-22",
+      "time": "03:00",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        "Career",
+        "Gango Gang"
+      ],
+      "votes": 0
+    },
+    {
+      "id": "0be2",
+      "title": "TEST 2",
+      "location": "Kumanove",
+      "category": "event",
+      "date": "2025-05-20",
+      "time": "18:00",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        "Career",
+        "Workshop"
+      ],
+      "votes": 0
+    },
+    {
+      "id": "88c9",
+      "title": "TEST 3",
+      "location": "Kumanove",
+      "category": "opportunity",
+      "date": "2025-06-26",
+      "time": "22:30",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        "Career",
+        "Work"
+      ]
+    },
+    {
+      "id": "4847",
+      "title": "TEST 4",
+      "location": "Skopje",
+      "category": "announcement",
+      "date": "2025-05-26",
+      "time": "18:59",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        "Career",
+        "Workshop"
+      ]
+    },
+    {
+      "id": "17b8",
+      "title": "TEST 5",
+      "location": "SKOPJE",
+      "category": "opportunity",
+      "date": "2025-05-13",
+      "time": "05:00",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        ""
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "otairi010@gmail.com"
+    },
+    {
+      "id":2,
+      "email": "moizkaseer@gmail.com"
     }
   ]
 }
