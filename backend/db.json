@@ -62,6 +62,45 @@
         "Career",
         "Work"
       ]
+    },
+    {
+      "id": "4847",
+      "title": "TEST 4",
+      "location": "Skopje",
+      "category": "announcement",
+      "date": "2025-05-26",
+      "time": "18:59",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        "Career",
+        "Workshop"
+      ]
+    },
+    {
+      "id": "17b8",
+      "title": "TEST 5",
+      "location": "SKOPJE",
+      "category": "opportunity",
+      "date": "2025-05-13",
+      "time": "05:00",
+      "description": "Quisque iaculis tempor mi eget lacinia. Vestibulum elementum ut velit faucibus consectetur. Nulla vel porttitor dolor. Maecenas eu purus sem. Integer et lorem mi. Fusce quis tortor et nunc eleifend laoreet sed cursus risus. Nunc tellus nulla, venenatis ut nisi vitae, bibendum consectetur tortor. Duis in bibendum augue, id laoreet justo. Phasellus elit nibh, accumsan eu justo nec, faucibus accumsan velit. ",
+      "tags": [
+        ""
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "email": "jane@example.com"
+    },
+    {
+      "id": 3,
+      "email": "michael@example.com"
     }
   ]
 }
