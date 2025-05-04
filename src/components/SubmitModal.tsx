@@ -54,8 +54,8 @@ const SubmitModal = ({ isOpen, onClose }: SubmitModalProps) => {
     };
 
     try {
-      // Send the POST request to json-server
-      const response = await fetch('http://localhost:3001/userSubmits', {  // URL to json-server endpoint
+      // First, send the POST request to json-server to save the data
+      const response = await fetch('http://localhost:3001/userSubmits', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,14 +65,34 @@ const SubmitModal = ({ isOpen, onClose }: SubmitModalProps) => {
 
       if (response.ok) {
         toast.success('Your submission has been received!');
+
+        // Second, trigger the email sending
+        // const emailResponse = await fetch('http://localhost:3000/sendEmails', {
+        //   method: 'GET',
+        //   mode: 'cors', // Explicitly request CORS mode
+        //   credentials: 'include', // If you need to send cookies
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        // });
+
+        // if (emailResponse.ok) {
+        //   console.log('Emails sent successfully');
+        // } else {
+        //   throw new Error('Failed to send emails');
+        // }
+
+        // Close the modal after successful submission
         onClose();
       } else {
         throw new Error('Failed to submit');
       }
     } catch (error) {
       toast.error('Something went wrong. Please try again!');
+      console.error(error);
     }
   };
+
 
   return (
       <Dialog open={isOpen} onOpenChange={onClose}>

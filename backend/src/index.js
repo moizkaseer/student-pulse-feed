@@ -63,8 +63,8 @@ app.post("/sendEmails", async (req, res) => {
         const mailOptions = {
             from: "campusconnectmk@gmail.com",  // Sender email address
             to: emails,  // List of recipients
-            subject: "Important Message",  // Subject of the email
-            text: "This is an important message for all users.", // Plain text content
+            subject: "New Information has been posted @ ConnectCampus",  // Subject of the email
+            text: "Someone just posted to Connect Campus.", // Plain text content
             html: `
       <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; color: #333;">
         <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden;">
