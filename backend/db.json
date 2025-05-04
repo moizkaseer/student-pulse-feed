@@ -1,7 +1,7 @@
 {
   "userSubmits": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Learn React",
       "location": "Tetovo",
       "category": "Education",
@@ -12,7 +12,7 @@
       "votes": 0
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Pigeon Care Tips",
       "location": "Skopje",
       "category": "opportunity",
@@ -91,12 +91,20 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "otairi010@gmail.com"
     },
     {
-      "id":2,
+      "id": "2",
       "email": "moizkaseer@gmail.com"
+    },
+    {
+      "id": "fcbc",
+      "email": "otairi010@gmail.com"
+    },
+    {
+      "id": "cfaa",
+      "email": "tairiomer04@gmail.com"
     }
   ]
 }
