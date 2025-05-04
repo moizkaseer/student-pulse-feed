@@ -66,11 +66,15 @@ const Index = () => {
     }, []);
 
     const filteredData = submissions.filter(item => {
+        const categoryMap: Record<string, string> = {
+            events: "Event",
+            opportunities: "Opportunity",
+            announcements: "Announcement",
+        };
+
         const matchesTab =
             activeTab === "all" ||
-            (activeTab === "events" && item.category === "event") ||
-            (activeTab === "opportunities" && item.category === "opportunity") ||
-            (activeTab === "announcements" && item.category === "announcement");
+            item.category === categoryMap[activeTab];
 
         const matchesSearch =
             item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -79,6 +83,7 @@ const Index = () => {
 
         return matchesTab && (searchQuery === "" || matchesSearch);
     });
+
 
     return (
         <div className="min-h-screen flex flex-col bg-background bg-pattern">
