@@ -94,6 +94,18 @@
         "entrepreneurship"
       ],
       "votes": 52
+    },
+    {
+      "id": "4875",
+      "title": "TEST",
+      "location": "Struga",
+      "category": "opportunity",
+      "date": "2025-05-01",
+      "time": "23:01",
+      "description": "sdsadsas",
+      "tags": [
+        ""
+      ]
     }
   ],
   "users": [
