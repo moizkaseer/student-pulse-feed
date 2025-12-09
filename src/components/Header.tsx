@@ -20,7 +20,7 @@ const Header = ({ openSubmitModal }: { openSubmitModal: () => void }) => {
           <div className="flex items-center justify-center w-8 h-8 rounded-md bg-campus-purple">
             <span className="font-bold text-white">C</span>
           </div>
-          <span className="text-xl font-bold gradient-text">CampusConnect</span>
+          <span className="text-xl font-bold gradient-text">SeeuConnect</span>
         </Link>
         
         <div className="hidden md:flex items-center space-x-4">

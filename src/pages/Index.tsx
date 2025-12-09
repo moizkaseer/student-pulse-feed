@@ -50,26 +50,46 @@ const Index = () => {
         }
     };
 
-
-    useEffect(() => {
+    const fetchSubmissions = () => {
         axios
             .get<UserSubmit[]>("http://localhost:3001/userSubmits")
             .then((res) => {
-                // Optional: if tags are stored as comma string
-                const cleaned = res.data.map((item) => ({
-                    ...item,
-                    tags: typeof item.tags === "string" ? item.tags.split(",").map(t => t.trim()) : item.tags,
-                }));
+                // Normalize tags and category
+                const cleaned = res.data.map((item: any) => {
+                    const normalizedTags = typeof item.tags === "string" 
+                        ? item.tags.split(",").map((t: string) => t.trim()) 
+                        : (Array.isArray(item.tags) ? item.tags : []);
+                    return {
+                        ...item,
+                        tags: normalizedTags,
+                        category: item.category.toLowerCase(), // Normalize category to lowercase
+                    };
+                });
                 setSubmissions(cleaned);
             })
             .catch((err) => console.error("Error fetching data:", err));
+    };
+
+    const handleDeleteEvent = async (id: number | string) => {
+        try {
+            await axios.delete(`http://localhost:3001/userSubmits/${id}`);
+            // Refresh the list after deletion
+            fetchSubmissions();
+        } catch (error) {
+            console.error("Error deleting event:", error);
+            throw error; // Re-throw to let the modal handle the error toast
+        }
+    };
+
+    useEffect(() => {
+        fetchSubmissions();
     }, []);
 
     const filteredData = submissions.filter(item => {
         const categoryMap: Record<string, string> = {
-            events: "Event",
-            opportunities: "Opportunity",
-            announcements: "Announcement",
+            events: "event",
+            opportunities: "opportunity",
+            announcements: "announcement",
         };
 
         const matchesTab =
@@ -92,7 +112,7 @@ const Index = () => {
             <main className="flex-grow container max-w-5xl mx-auto px-4 py-8">
                 <section className="mb-10">
                     <div className="mb-8 text-center">
-                        <h1 className="text-5xl font-bold mb-3 gradient-text">CampusConnect</h1>
+                        <h1 className="text-5xl font-bold mb-3 gradient-text">SeeuConnect</h1>
                         <p className="text-lg text-muted-foreground">Discover, share, and vote on campus events and opportunities</p>
                     </div>
 
@@ -117,13 +137,12 @@ const Index = () => {
                                     key={item.id}
                                     id={item.id}
                                     title={item.title}
-                                    location={item.location}
                                     description={item.description}
                                     date={item.date}
                                     category={item.category as 'event' | 'opportunity' | 'announcement'}
                                     votes={item.votes}
-                                    time={item.time}
                                     tags={item.tags}
+                                    onDelete={handleDeleteEvent}
                                 />
                             ))}
                         </div>
@@ -138,7 +157,7 @@ const Index = () => {
 
             <footer className="bg-white dark:bg-card border-t border-border py-8">
                 <div className="container mx-auto px-4 text-center">
-                    <p className="text-muted-foreground">© 2023 CampusConnect. All rights reserved.</p>
+                    <p className="text-muted-foreground">© 2023 SeeuConnect. All rights reserved.</p>
                     <p className="mt-2 text-muted-foreground/70">Subscribe to our weekly digest for campus updates.</p>
                 </div>
             </footer>
@@ -146,6 +165,7 @@ const Index = () => {
             <SubmitModal
                 isOpen={isSubmitModalOpen}
                 onClose={() => setIsSubmitModalOpen(false)}
+                onSubmitSuccess={fetchSubmissions}  
             />
 
             {/* Floating Subscribe Button */}

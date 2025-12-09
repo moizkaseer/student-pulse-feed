@@ -8,16 +8,17 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/h
 import EventDetailsModal from './EventDetailsModal.tsx';
 
 interface EventCardProps {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   date?: string;
   category: 'event' | 'opportunity' | 'announcement';
   votes: number;
   tags: string[];
+  onDelete?: (id: number | string) => void;
 }
 
-const EventCard = ({ id, title, description, date, category, votes, tags }: EventCardProps) => {
+const EventCard = ({ id, title, description, date, category, votes, tags, onDelete }: EventCardProps) => {
   const [voteCount, setVoteCount] = useState(votes || 0);
   const [hasVoted, setHasVoted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -151,7 +152,11 @@ const EventCard = ({ id, title, description, date, category, votes, tags }: Even
         </HoverCard>
 
         {isModalOpen && selectedEvent && (
-            <EventDetailsModal event={selectedEvent} onClose={() => setIsModalOpen(false)} />
+            <EventDetailsModal 
+                event={selectedEvent} 
+                onClose={() => setIsModalOpen(false)}
+                onDelete={onDelete}
+            />
         )}
       </>
   );

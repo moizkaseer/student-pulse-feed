@@ -10,9 +10,10 @@ import { toast } from 'sonner';
 interface SubmitModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onSubmitSuccess?: () => void;
 }
 
-const SubmitModal = ({ isOpen, onClose }: SubmitModalProps) => {
+const SubmitModal = ({ isOpen, onClose, onSubmitSuccess }: SubmitModalProps) => {
   const [formData, setFormData] = useState({
     title: '',
     location: '',
@@ -65,6 +66,23 @@ const SubmitModal = ({ isOpen, onClose }: SubmitModalProps) => {
 
       if (response.ok) {
         toast.success('Your submission has been received!');
+
+        // Reset form after successful submission
+        setFormData({
+          title: '',
+          location: '',
+          category: '',
+          date: '',
+          time: '',
+          description: '',
+          tags: '',
+          votes: 0
+        });
+
+        // Notify parent component to refetch events
+        if (onSubmitSuccess) {
+          onSubmitSuccess();
+        }
 
         // Second, trigger the email sending
         // const emailResponse = await fetch('http://localhost:3000/sendEmails', {
