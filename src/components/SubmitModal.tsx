@@ -6,14 +6,15 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
+import axios from 'axios';
 
 interface SubmitModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmitSuccess?: () => void;
+  onSubmissionSuccess?: () => void;
 }
 
-const SubmitModal = ({ isOpen, onClose, onSubmitSuccess }: SubmitModalProps) => {
+const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps) => {
   const [formData, setFormData] = useState({
     title: '',
     location: '',
@@ -51,23 +52,15 @@ const SubmitModal = ({ isOpen, onClose, onSubmitSuccess }: SubmitModalProps) => 
       date: formData.date,
       time: formData.time,
       description: formData.description,
-      tags: formData.tags.split(',').map(tag => tag.trim())
+      tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : []
     };
 
     try {
-      // First, send the POST request to json-server to save the data
-      const response = await fetch('http://localhost:3001/userSubmits', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      // FIXED: Ensure port matches your Java Backend (9091)
+      const response = await axios.post('http://localhost:9091/api/events', payload);
 
-      if (response.ok) {
-        toast.success('Your submission has been received!');
-
-        // Reset form after successful submission
+      if (response.status === 200 || response.status === 201) {
+        toast.success('Submission successful!');
         setFormData({
           title: '',
           location: '',
@@ -78,30 +71,8 @@ const SubmitModal = ({ isOpen, onClose, onSubmitSuccess }: SubmitModalProps) => 
           tags: '',
           votes: 0
         });
-
-        // Notify parent component to refetch events
-        if (onSubmitSuccess) {
-          onSubmitSuccess();
-        }
-
-        // Second, trigger the email sending
-        // const emailResponse = await fetch('http://localhost:3000/sendEmails', {
-        //   method: 'GET',
-        //   mode: 'cors', // Explicitly request CORS mode
-        //   credentials: 'include', // If you need to send cookies
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        // });
-
-        // if (emailResponse.ok) {
-        //   console.log('Emails sent successfully');
-        // } else {
-        //   throw new Error('Failed to send emails');
-        // }
-
-        // Close the modal after successful submission
         onClose();
+        onSubmissionSuccess?.();
       } else {
         throw new Error('Failed to submit');
       }
@@ -111,12 +82,11 @@ const SubmitModal = ({ isOpen, onClose, onSubmitSuccess }: SubmitModalProps) => 
     }
   };
 
-
   return (
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold gradient-text">Submit to CampusConnect</DialogTitle>
+            <DialogTitle className="text-2xl font-bold gradient-text">Submit to SEEUConnect</DialogTitle>
             <DialogDescription>
               Share events, opportunities, or announcements with the campus community.
             </DialogDescription>
@@ -147,13 +117,14 @@ const SubmitModal = ({ isOpen, onClose, onSubmitSuccess }: SubmitModalProps) => 
 
             <div className="space-y-2">
               <Label htmlFor="category">Category</Label>
+              {/* FIXED: Removed 'id' from Select */}
               <Select
-                  id="category"
                   value={formData.category}
-                  onValueChange={handleCategoryChange} // Update category state on value change
+                  onValueChange={handleCategoryChange}
                   required
               >
-                <SelectTrigger>
+                {/* FIXED: Added 'id' to SelectTrigger so the Label works */}
+                <SelectTrigger id="category">
                   <SelectValue placeholder="Select a category" />
                 </SelectTrigger>
                 <SelectContent>
