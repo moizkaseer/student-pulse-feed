@@ -42,8 +42,8 @@ const Index = () => {
     };
 
     try {
-      // 2. Send to Java Backend
-      const response = await fetch('http://localhost:9091/api/users', {
+      // 2. Send to Java Backend PORT NUBER 9091
+      const response = await fetch('http://localhost:5056/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

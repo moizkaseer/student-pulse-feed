@@ -25,6 +25,7 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
     tags: '',
     votes: 0
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -44,6 +45,26 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Manual validation so the user always gets clear feedback
+    if (!formData.title.trim()) {
+      toast.error('Please enter a title.');
+      return;
+    }
+    if (!formData.location.trim()) {
+      toast.error('Please enter a location.');
+      return;
+    }
+    if (!formData.category.trim()) {
+      toast.error('Please select a category.');
+      return;
+    }
+    if (!formData.description.trim()) {
+      toast.error('Please enter a description.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
     let finalDate = new Date();
     if (formData.date) {
       finalDate = new Date(formData.date);
@@ -54,23 +75,13 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
     }
 
     // Create the payload from formData state
-
-  const payload = {
-
-      id: 0, 
+    // Match Java model: com.example.demo.model.Event
+    // Fields: id (auto), title, description, category, votes, createdAt (auto)
+    const payload = {
       title: formData.title,
       description: formData.description,
-      location: formData.location,
       category: formData.category,
-      votes: 0, 
-
-     
-      tags: formData.tags || "", 
-
-   
-      date: finalDate.toISOString(), 
-      
-
+      votes: 0
     };
     try {
       // FIXED: Ensure port matches your Java Backend (9091)
@@ -95,9 +106,23 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
       } else {
         throw new Error('Failed to submit');
       }
-    } catch (error) {
-      toast.error('Something went wrong. Please try again!');
-      console.error(error);
+    } catch (error: any) {
+      // Try to surface the backend error message, not just a generic one
+      if (axios.isAxiosError(error) && error.response) {
+        const backendMessage =
+          (typeof error.response.data === 'string'
+            ? error.response.data
+            : (error.response.data && (error.response.data.message || error.response.data.error))) ||
+          `Server error (${error.response.status})`;
+
+        toast.error(backendMessage);
+        console.error('Submit error (backend):', error.response);
+      } else {
+        toast.error('Something went wrong. Please try again!');
+        console.error('Submit error (other):', error);
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -201,8 +226,12 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
               <Button type="button" variant="outline" onClick={onClose}>
                 Cancel
               </Button>
-              <Button type="submit" className="bg-campus-purple hover:bg-campus-lightPurple">
-                Submit
+              <Button
+                type="submit"
+                className="bg-campus-purple hover:bg-campus-lightPurple"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </Button>
             </div>
           </form>
