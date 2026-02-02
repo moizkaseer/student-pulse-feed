@@ -44,20 +44,39 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    let finalDate = new Date();
+    if (formData.date) {
+      finalDate = new Date(formData.date);
+      if (formData.time) {
+        const [hours, minutes] = formData.time.split(':').map(Number);
+        finalDate.setHours(hours, minutes);
+      } 
+    }
+
     // Create the payload from formData state
-    const payload = {
+
+  const payload = {
+
+      id: 0, 
       title: formData.title,
+      description: formData.description,
       location: formData.location,
       category: formData.category,
-      date: formData.date,
-      time: formData.time,
-      description: formData.description,
-      tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : []
-    };
+      votes: 0, 
 
+     
+      tags: formData.tags || "", 
+
+   
+      date: finalDate.toISOString(), 
+      
+
+    };
     try {
       // FIXED: Ensure port matches your Java Backend (9091)
       const response = await axios.post('http://localhost:9091/api/events', payload);
+      // UPDATED: Changed to match the new backend endpoint for C#
+      //const response = await axios.post('http://localhost:5056/api/events', payload);
 
       if (response.status === 200 || response.status === 201) {
         toast.success('Submission successful!');
@@ -191,5 +210,4 @@ const SubmitModal = ({ isOpen, onClose, onSubmissionSuccess }: SubmitModalProps)
       </Dialog>
   );
 };
-
 export default SubmitModal;
